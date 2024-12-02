@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>File Upload</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -21,6 +25,17 @@
     >
       Upload File
     </button>
+    <!-- Upload File With downlaod -->
+    <div class="files mt-3 flex flex-col gap-2">
+      <% files.forEach((file)=>{ %>
+      <div class="p-2 cursor-pointer rounded-md bg-gray-300 flex justify-between">
+        <h1><%= file.originalname %></h1>
+        <a href="/dowload/<= file.path" download="<%= file.originalname %>">
+          <i class="ri-download-2-line"></i>
+        </a>
+      </div>
+      <% } ) %>
+    </div>
 
     <!-- File Upload Popup -->
     <div
